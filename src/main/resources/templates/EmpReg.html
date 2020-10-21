@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-danger text-white text-center">
+				<h3>EMPLOYEE REGISTER FORM</h3>
+			</div>
+			<div class="card-body">
+
+				<form th:action="@{/employee/save}" method="POST"
+					th:object="${employee}">
+
+					<div class="row">
+						<div class="col-2">NAME</div>
+						<div class="col-4">
+							<input type="text" th:field="*{name}" class="form-control" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">SALARY</div>
+						<div class="col-4">
+							<input type="text" th:field="*{salary}" class="form-control" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">ADDRESS</div>
+						<div class="col-4">
+							<input type="text" th:field="*{address}" class="form-control" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">VALIDATE</div>
+						<div class="col-4">
+							<div class="g-recaptcha"
+								data-sitekey="6LcMfdMZAAAAALe9dcEp6ww1sB77O974Cexa2-PW"></div>
+						</div>
+					</div>
+
+
+					<input type="submit" value="Add Employee" class="btn btn-success" />
+					| <a th:href="@{/employee/all}" class="btn btn-info">VIEW ALL</a>
+
+				</form>
+			</div>
+			<div class="card-footer bg-white">
+
+				<span th:text="${message}"></span>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
